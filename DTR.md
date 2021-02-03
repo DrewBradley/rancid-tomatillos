@@ -58,8 +58,11 @@ Additional Remote Considerations:
 Day 1 Agenda: 
   * Review rubric and answer questions:
     - What components do you envision needing?
+    	* see project board
     - Where will data be stored?
+    	* MainDisplay parent component is stateful. Contains movie array, current movie data, and isSelected boolean.
     - How will information be passed around?
+    	* movie id, title, poster_url passed to Thumbnail component as props. Function to update state will come from child component. 
   * GitHub Repo
   * GitHub Projectboard
   * Wireframing
@@ -67,3 +70,4 @@ Day 1 Agenda:
   * Build pull-request-template.md
 
 Additional Notes:
+[Inspiration Board](https://gist.github.com/DrewBradley/09ba28892c28e8a8473d71c247d22fcf)
