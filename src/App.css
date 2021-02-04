@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.main-display {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+}
+
+.movie-thumb {
+  height: 350px;
+  width: 250px;
+}
+
+img {
+  object-fit: contain;
+  height: 350px;
+  width: 250px;
+}

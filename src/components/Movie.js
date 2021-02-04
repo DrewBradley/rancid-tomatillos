@@ -1,8 +1,10 @@
-import React from 'react';
+import React from 'react'
 
 const Movie = (props) => {
   return (
-  <img src={props.poster}/>
+    <div className="movie-thumb">
+      <img src={props.poster}/>
+    </div>
   )
 }
 

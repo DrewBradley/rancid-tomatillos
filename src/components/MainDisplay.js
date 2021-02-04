@@ -1,20 +1,21 @@
 import React from 'react';
 import movieData from '../test/test-data';
-import Movie from './Movie'
+import Movie from './Movie';
 
 class MainDisplay extends React.Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData
+      movies: movieData.movies
     };
   }
 
   render() {
+    const movies = this.state.movies.map(movie => <Movie poster={movie.poster_path}/>)
     return (
-      <h1>
-      This is the main display
-      </h1>
+      <section className="main-display">
+        {movies}
+      </section>
     )
   }
 }
