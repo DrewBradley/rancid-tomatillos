@@ -1,10 +1,13 @@
 import React from "react"
 
-const IndividualView = () => {
+const IndividualView = (props) => {
   return(
     <section className="individual"
-    style={{backgroundImage: `url("${props.backdrop_path}")`}}>
-      <h1></h1>
+    style={{
+      backgroundImage: `url("${props.backdrop}")`, backgroundRepeat: 'no-repeat', 
+      backgroundSize: 'cover'}}>
+      <h1>{props.title}</h1>
+      <p>{props.rating}</p>
     </section>
   )
 }
