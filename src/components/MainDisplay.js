@@ -1,6 +1,7 @@
 import React from 'react';
 import movieData from '../test/test-data';
 import Movie from './Movie';
+import IndivdualView from './IndividualView';
 
 class MainDisplay extends React.Component {
   constructor() {
@@ -12,7 +13,8 @@ class MainDisplay extends React.Component {
     };
   }
 
-  displayIndividual(movie) {
+  displayIndividual = (movie) => {
+    console.log(movie)
     this.setState({
       individual: true,
       currentMovie: {
@@ -29,11 +31,15 @@ class MainDisplay extends React.Component {
       poster={movie.poster_path} 
       title={movie.title}
       backdrop={movie.backdrop_path}
-      rating={movie.average_rating}/>)
+      rating={movie.average_rating}
+      showIndividual={this.displayIndividual}/>)
     return (
+      <div>
+        {this.state.individual && <IndivdualView />}
       <section className="main-display">
         {movies}
       </section>
+      </div>
     )
   }
 }
