@@ -6,7 +6,8 @@ class MainDisplay extends React.Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies
+      movies: movieData.movies,
+      individual: false
     };
   }
 
