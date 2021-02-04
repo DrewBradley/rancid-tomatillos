@@ -1,7 +1,7 @@
 import React from 'react';
 import movieData from '../test/test-data';
 import Movie from './Movie';
-import IndivdualView from './IndividualView';
+import IndividualView from './IndividualView';
 
 class MainDisplay extends React.Component {
   constructor() {
@@ -23,6 +23,7 @@ class MainDisplay extends React.Component {
         rating: movie.rating
       }
     })
+    console.log(this.state.currentMovie)
   }
 
   render() {
@@ -35,7 +36,9 @@ class MainDisplay extends React.Component {
       showIndividual={this.displayIndividual}/>)
     return (
       <div>
-        {this.state.individual && <IndivdualView />}
+        {this.state.individual && 
+          <IndividualView key={"this"} 
+          props={this.state.currentMovie}/>}
       <section className="main-display">
         {movies}
       </section>
