@@ -26,6 +26,12 @@ class MainDisplay extends React.Component {
     console.log(this.state.currentMovie)
   }
 
+  hideIndividual = () => {
+    this.setState({
+      individual: false
+    })
+  }
+
   render() {
     const movies = this.state.movies.map(movie => <Movie  
       key={movie.id} 
@@ -38,7 +44,8 @@ class MainDisplay extends React.Component {
       <div>
         {this.state.individual && 
           <IndividualView key={"this"} 
-          props={this.state.currentMovie}/>}
+          props={this.state.currentMovie}
+          hideIndividual={this.hideIndividual}/>}
       <section className="main-display">
         {movies}
       </section>

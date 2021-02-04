@@ -5,6 +5,7 @@ const IndividualView = (props) => {
   console.log(props)
   return(
     <section className="individual"
+    onClick={() => props.hideIndividual()}
     style={{
       backgroundImage: `url("${props.props.backdrop}")`, backgroundRepeat: 'no-repeat', 
       backgroundSize: 'cover'}}>
