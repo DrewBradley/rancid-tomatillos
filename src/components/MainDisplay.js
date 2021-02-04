@@ -11,7 +11,7 @@ class MainDisplay extends React.Component {
   }
 
   render() {
-    const movies = this.state.movies.map(movie => <Movie poster={movie.poster_path}/>)
+    const movies = this.state.movies.map(movie => <Movie key={movie.id} poster={movie.poster_path} title={movie.title}/>)
     return (
       <section className="main-display">
         {movies}
