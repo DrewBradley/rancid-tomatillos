@@ -12,6 +12,17 @@ class MainDisplay extends React.Component {
     };
   }
 
+  displayIndividual(movie) {
+    this.setState({
+      individual: true,
+      currentMovie: {
+        backdrop: movie.backdrop,
+        title: movie.title,
+        rating: movie.rating
+      }
+    })
+  }
+
   render() {
     const movies = this.state.movies.map(movie => <Movie  
       key={movie.id} 
