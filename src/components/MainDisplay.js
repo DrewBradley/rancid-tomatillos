@@ -21,7 +21,7 @@ class MainDisplay extends React.Component {
         poster: movie.poster,
         backdrop: movie.backdrop,
         title: movie.title,
-        rating: movie.rating
+        rating: movie.rating.toFixed(1)
       }
     })
     console.log(this.state.currentMovie)
