@@ -18,6 +18,7 @@ class MainDisplay extends React.Component {
     this.setState({
       individual: true,
       currentMovie: {
+        poster: movie.poster,
         backdrop: movie.backdrop,
         title: movie.title,
         rating: movie.rating
