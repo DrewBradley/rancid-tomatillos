@@ -7,10 +7,20 @@ class MainDisplay extends React.Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       individual: false,
+      errorMessage: "",
       currentMovie: ""
     };
+  }
+
+  componentDidMount = () => {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(response => response.json())
+    .then(data => this.setState({
+      movies: data.movies
+    }))
+  .catch(error => this.setState({errorMessage: error}))
   }
 
   displayIndividual = (movie) => {
@@ -27,6 +37,8 @@ class MainDisplay extends React.Component {
     console.log(this.state.currentMovie)
   }
 
+
+
   hideIndividual = () => {
     this.setState({
       individual: false
@@ -34,17 +46,17 @@ class MainDisplay extends React.Component {
   }
 
   render() {
-    const movies = this.state.movies.map(movie => <Movie  
-      key={movie.id} 
-      poster={movie.poster_path} 
+    const movies = this.state.movies.map(movie => <Movie
+      key={movie.id}
+      poster={movie.poster_path}
       title={movie.title}
       backdrop={movie.backdrop_path}
       rating={movie.average_rating}
       showIndividual={this.displayIndividual}/>)
     return (
       <div>
-        {this.state.individual && 
-          <IndividualView key={"this"} 
+        {this.state.individual &&
+          <IndividualView key={"this"}
           props={this.state.currentMovie}
           hideIndividual={this.hideIndividual}/>}
       <section className="main-display">

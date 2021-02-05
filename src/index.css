@@ -10,13 +10,13 @@
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-} */
- /* .main-display {
+}
+.main-display {
    display: grid;
    grid-template-columns: repeat(5, 1fr);
    grid-template-rows: auto;
- }
+}
 
- .movie-thumb {
+.movie-thumb {
    height: 250px;
- } */
+} */
