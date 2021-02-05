@@ -10,7 +10,17 @@ class MainDisplay extends React.Component {
       movies: [],
       individual: false,
       errorMessage: "",
-      currentMovie: ""
+      currentMovie: {
+        poster: "",
+        backdrop: "",
+        title: "",
+        rating: "",
+        overview: "",
+        runtime: "",
+        revenue: "",
+        budget: "",
+        genres: ""
+      }
     };
   }
 
@@ -23,21 +33,29 @@ class MainDisplay extends React.Component {
   .catch(error => this.setState({errorMessage: error}))
   }
 
-  displayIndividual = (movie) => {
-    console.log(movie)
+  displayIndividual = (id) => {
+    console.log(id)
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + id)
+    .then(response => response.json())
+    .then(data =>
     this.setState({
       individual: true,
       currentMovie: {
-        poster: movie.poster,
-        backdrop: movie.backdrop,
-        title: movie.title,
-        rating: movie.rating.toFixed(1)
+        poster: data.movie.poster_path,
+        backdrop: data.movie.backdrop_path,
+        title: data.movie.title,
+        rating: data.movie.average_rating.toFixed(1),
+        overview: data.movie.overview,
+        runtime: data.movie.runtime,
+        revenue: data.movie.revenue,
+        budget: data.movie.budget,
+        genres: data.movie.genres,
+        tagline: data.movie.tagline,
+        date: data.movie.release_date
       }
-    })
+    }))
     console.log(this.state.currentMovie)
   }
-
-
 
   hideIndividual = () => {
     this.setState({
@@ -48,6 +66,7 @@ class MainDisplay extends React.Component {
   render() {
     const movies = this.state.movies.map(movie => <Movie
       key={movie.id}
+      id={movie.id}
       poster={movie.poster_path}
       title={movie.title}
       backdrop={movie.backdrop_path}
