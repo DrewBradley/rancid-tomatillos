@@ -7,23 +7,53 @@ class MainDisplay extends React.Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       individual: false,
-      currentMovie: ""
+      errorMessage: "",
+      currentMovie: {
+        poster: "",
+        backdrop: "",
+        title: "",
+        rating: "",
+        overview: "",
+        runtime: "",
+        revenue: "",
+        budget: "",
+        genres: ""
+      }
     };
   }
 
-  displayIndividual = (movie) => {
-    console.log(movie)
+  componentDidMount = () => {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(response => response.json())
+    .then(data => this.setState({
+      movies: data.movies
+    }))
+  .catch(error => this.setState({errorMessage: error}))
+  }
+
+  displayIndividual = (id) => {
+    console.log(id)
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + id)
+    .then(response => response.json())
+    .then(data =>
     this.setState({
       individual: true,
       currentMovie: {
-        poster: movie.poster,
-        backdrop: movie.backdrop,
-        title: movie.title,
-        rating: movie.rating.toFixed(1)
+        poster: data.movie.poster_path,
+        backdrop: data.movie.backdrop_path,
+        title: data.movie.title,
+        rating: data.movie.average_rating.toFixed(1),
+        overview: data.movie.overview,
+        runtime: data.movie.runtime,
+        revenue: data.movie.revenue,
+        budget: data.movie.budget,
+        genres: data.movie.genres,
+        tagline: data.movie.tagline,
+        date: data.movie.release_date
       }
-    })
+    }))
     console.log(this.state.currentMovie)
   }
 
@@ -34,17 +64,18 @@ class MainDisplay extends React.Component {
   }
 
   render() {
-    const movies = this.state.movies.map(movie => <Movie  
-      key={movie.id} 
-      poster={movie.poster_path} 
+    const movies = this.state.movies.map(movie => <Movie
+      key={movie.id}
+      id={movie.id}
+      poster={movie.poster_path}
       title={movie.title}
       backdrop={movie.backdrop_path}
       rating={movie.average_rating}
       showIndividual={this.displayIndividual}/>)
     return (
       <div>
-        {this.state.individual && 
-          <IndividualView key={"this"} 
+        {this.state.individual &&
+          <IndividualView key={"this"}
           props={this.state.currentMovie}
           hideIndividual={this.hideIndividual}/>}
       <section className="main-display">
