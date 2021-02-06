@@ -2,6 +2,9 @@ body {
   background-color: #000;
   width: 100%;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-display {
@@ -81,6 +84,14 @@ button {
 
 .overview-text {
   font-size: 1.5rem;
+}
+
+.error {
+  /* padding-top: rem;
+  margin: 0%;
+  text-align: center; */
+  font-size: 3.5rem;
+  color: red;
 }
 
 /* img {

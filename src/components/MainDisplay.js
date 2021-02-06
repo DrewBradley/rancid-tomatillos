@@ -30,8 +30,10 @@ class MainDisplay extends React.Component {
     .then(data => this.setState({
       movies: data.movies
     }))
-  .catch(error => this.setState({errorMessage: error}))
+  .catch(error => this.setState({errorMessage: 'Oops! Something went wrong! Please try again later.'}))
   }
+
+
 
   displayIndividual = (id) => {
     console.log(id)
@@ -54,7 +56,6 @@ class MainDisplay extends React.Component {
         date: data.movie.release_date
       }
     }))
-    console.log(this.state.currentMovie)
   }
 
   hideIndividual = () => {
@@ -74,6 +75,8 @@ class MainDisplay extends React.Component {
       showIndividual={this.displayIndividual}/>)
     return (
       <div>
+        {this.state.errorMessage.length &&
+        <h1 className="error">{this.state.errorMessage}</h1>}
         {this.state.individual &&
           <IndividualView key={"this"}
           props={this.state.currentMovie}
