@@ -28,13 +28,15 @@ class MainDisplay extends React.Component {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(response => response.json())
     .then(data => this.setState({
-      movies: data.movies
+      movies: data.movies,
+      errorMessage: ""
     }))
-  .catch(error => this.setState({errorMessage: error}))
+  .catch(error => this.setState({errorMessage: 'Oops! Something went wrong! Please try again later.'}))
   }
 
+
+
   displayIndividual = (id) => {
-    console.log(id)
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + id)
     .then(response => response.json())
     .then(data =>
@@ -54,7 +56,10 @@ class MainDisplay extends React.Component {
         date: data.movie.release_date
       }
     }))
-    console.log(this.state.currentMovie)
+    .catch(error => this.setState({
+      errorMessage: 'Oops! Something went wrong! Please try again later.',
+      movies: []
+    }))
   }
 
   hideIndividual = () => {
@@ -74,6 +79,11 @@ class MainDisplay extends React.Component {
       showIndividual={this.displayIndividual}/>)
     return (
       <div>
+        {this.state.errorMessage.length &&
+          <div>
+        <h1 className="error">{this.state.errorMessage}</h1>
+        <button onClick={this.componentDidMount}>BACK</button>
+          </div>}
         {this.state.individual &&
           <IndividualView key={"this"}
           props={this.state.currentMovie}
