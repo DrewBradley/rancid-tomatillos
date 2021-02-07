@@ -1,4 +1,5 @@
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #000;
   width: 100%;
   height: 100vh;
@@ -60,6 +61,16 @@ footer {
   bottom: 0;
 }
 
+.movie-title-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 0;
+}
+
 .mini-poster {
   height: 100%;
   margin-left: 1rem;
@@ -71,15 +82,25 @@ button {
 
 .movie-details {
   padding: 1rem;
-  width: 50rem;
+  width: 40rem;
 }
 
 .movie-overview {
   width: 70%;
 }
 
+.genre-container {
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
 .overview-text {
   font-size: 1.5rem;
+  padding: 2%;
+  height: 7rem;
+  overflow: scroll;
 }
 
 .error {

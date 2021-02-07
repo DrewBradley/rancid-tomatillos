@@ -7,8 +7,10 @@ const Footer = (props) => {
     <footer>
         <img className="mini-poster" src={props.props.poster} />
         <div className="movie-details">
-          <h1>{props.props.title}</h1>
-          <h2>{props.props.rating}/10</h2>
+          <div className="movie-title-container">
+            <h2>{props.props.title}</h2>
+            <h2>{props.props.rating}/10</h2>
+          </div>
           <p>{props.props.tagline}</p>
           <p>Release Date: {props.props.date}</p>
           <p>Runtime: {props.props.runtime} min.</p>
@@ -17,7 +19,7 @@ const Footer = (props) => {
         </div>
         <div className="movie-overview">
           <p className="overview-text">{props.props.overview}</p>
-          <p>{genreList}</p>
+          <div className="genre-container">{genreList}</div>
           <button onClick={props.hideView}>GO BACK!!!</button>
         </div>
     </footer>
