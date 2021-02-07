@@ -11,16 +11,24 @@ const Footer = (props) => {
             <h2>{props.props.title}</h2>
             <h2>{props.props.rating}/10</h2>
           </div>
-          <p>{props.props.tagline}</p>
-          <p>Release Date: {props.props.date}</p>
-          <p>Runtime: {props.props.runtime} min.</p>
-          <p>Budget: ${props.props.budget}</p>
-          <p>Revenue: ${props.props.revenue}</p>
+          <p className="tagline">"{props.props.tagline}"</p>
+          <div className="details-wrapper">
+            <div className="details-sub-wrapper">
+              <p>Release Date: {props.props.date}</p>
+              <p>Runtime: {props.props.runtime} min.</p>
+            </div>
+            <div className="details-sub-wrapper">
+              <p>Budget: ${props.props.budget}</p>
+              <p>Revenue: ${props.props.revenue}</p>
+            </div>
+          </div>
         </div>
         <div className="movie-overview">
-          <p className="overview-text">{props.props.overview}</p>
-          <div className="genre-container">{genreList}</div>
-          <button onClick={props.hideView}>GO BACK!!!</button>
+          <div className="overview-wrapper">
+            <p className="overview-text">{props.props.overview}</p>
+          </div>
+            <div className="genre-container">{genreList}</div>
+            <button onClick={props.hideView}>BACK</button>
         </div>
     </footer>
   )
