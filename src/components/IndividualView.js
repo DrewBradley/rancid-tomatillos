@@ -32,7 +32,6 @@ class IndividualView extends React.Component {
   }
   
   render(){
-    // console.log(this.state.movie.genres)
     return (
       <section className="individual"
       style={{
@@ -41,7 +40,6 @@ class IndividualView extends React.Component {
         <Footer
         id={this.state.id}
         poster={this.state.poster}
-        backdrop= {this.state.backdrop}
         title= {this.state.title}
         rating= {this.state.rating}
         overview= {this.state.overview}

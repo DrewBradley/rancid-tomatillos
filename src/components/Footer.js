@@ -1,10 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-const Footer = ({ id, poster, backdrop, title, rating, overview, runtime, revenue, budget, genres, tagline, date }) => {
-  console.log(backdrop)
-  // const genreList = ..genres.map(genre => 
-  //   <p>{genre}</p>)
+const Footer = ({ id, poster, title, rating, overview, runtime, revenue, budget, genres, tagline, date }) => {
   return(
     <footer>
         <img className="mini-poster" src={poster} />
@@ -24,7 +21,9 @@ const Footer = ({ id, poster, backdrop, title, rating, overview, runtime, revenu
           <div className="genre-container"> 
              {genres} 
           </div>
-          <button>GO BACK!!!</button>
+          <Link to={"/"}>
+            <button>GO BACK!!!</button>
+          </Link>
         </div>
     </footer>
   )
