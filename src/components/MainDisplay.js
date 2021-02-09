@@ -1,7 +1,5 @@
 import React from 'react';
-import movieData from '../test/test-data';
 import Movie from './Movie';
-import IndividualView from './IndividualView';
 
 class MainDisplay extends React.Component {
   constructor() {

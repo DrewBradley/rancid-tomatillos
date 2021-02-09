@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-const Footer = ({ id, poster, title, rating, overview, runtime, revenue, budget, genres, tagline, date }) => {
+const Footer = ({ poster, title, rating, overview, runtime, revenue, budget, genres, tagline, date }) => {
   return(
     <footer>
         <img className="mini-poster" src={poster} />

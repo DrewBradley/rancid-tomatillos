@@ -1,6 +1,6 @@
 import './App.css';
 import MainDisplay from './components/MainDisplay';
-import {Route, Link, Switch} from "react-router-dom"
+import {Route, Switch} from "react-router-dom"
 import IndividualView from './components/IndividualView';
 
 const App = () => {
