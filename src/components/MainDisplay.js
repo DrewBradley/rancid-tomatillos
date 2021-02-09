@@ -84,10 +84,6 @@ class MainDisplay extends React.Component {
         <h1 className="error">{this.state.errorMessage}</h1>
         <button onClick={this.componentDidMount}>BACK</button>
           </div>}
-        {this.state.individual &&
-          <IndividualView key={"this"}
-          props={this.state.currentMovie}
-          hideIndividual={this.hideIndividual}/>}
       <section className="main-display">
         {movies}
       </section>

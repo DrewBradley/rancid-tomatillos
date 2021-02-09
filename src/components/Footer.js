@@ -1,26 +1,30 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
-const Footer = (props) => {
-  console.log(props)
-  const genreList = props.props.genres.map(genre => <p>{genre}</p>)
+const Footer = ({ id, poster, backdrop, title, rating, overview, runtime, revenue, budget, genres, tagline, date }) => {
+  console.log(backdrop)
+  // const genreList = ..genres.map(genre => 
+  //   <p>{genre}</p>)
   return(
     <footer>
-        <img className="mini-poster" src={props.props.poster} />
+        <img className="mini-poster" src={poster} />
         <div className="movie-details">
           <div className="movie-title-container">
-            <h2>{props.props.title}</h2>
-            <h2>{props.props.rating}/10</h2>
+            <h2>{title}</h2>
+            <h2>{rating}/10</h2>
           </div>
-          <p>{props.props.tagline}</p>
-          <p>Release Date: {props.props.date}</p>
-          <p>Runtime: {props.props.runtime} min.</p>
-          <p>Budget: ${props.props.budget}</p>
-          <p>Revenue: ${props.props.revenue}</p>
+          <p>{tagline}</p>
+          <p>Release Date: {date}</p>
+          <p>Runtime: {runtime} min.</p>
+          <p>Budget: ${budget}</p>
+          <p>Revenue: ${revenue}</p>
         </div>
         <div className="movie-overview">
-          <p className="overview-text">{props.props.overview}</p>
-          <div className="genre-container">{genreList}</div>
-          <button onClick={props.hideView}>GO BACK!!!</button>
+          <p className="overview-text">{overview}</p>
+          <div className="genre-container"> 
+             {genres} 
+          </div>
+          <button>GO BACK!!!</button>
         </div>
     </footer>
   )
