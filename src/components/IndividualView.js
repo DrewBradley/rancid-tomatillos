@@ -10,12 +10,12 @@ class IndividualView extends React.Component {
       data: ''
     }
   }
-  
+
   componentDidMount = () => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.match.params.id}`)
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
       .then(response => response.json())
       .then(data => this.setState({
-        id: data.movie.id, 
+        id: data.movie.id,
         poster: data.movie.poster_path,
         backdrop: data.movie.backdrop_path,
         title: data.movie.title,
@@ -24,18 +24,19 @@ class IndividualView extends React.Component {
         runtime: data.movie.runtime,
         revenue: data.movie.revenue,
         budget: data.movie.budget,
-        genres: data.movie.genres.map(genre => 
+        genres: data.movie.genres.map(genre =>
           <p>{genre}</p>),
         tagline: data.movie.tagline,
         date: data.movie.release_date
       }))
+      .catch(error => console.log(error))
   }
-  
+
   render(){
     return (
       <section className="individual"
       style={{
-        backgroundImage: `url("${this.state.backdrop}")`, backgroundRepeat: 'no-repeat', 
+        backgroundImage: `url("${this.state.backdrop}")`, backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover'}}>
         <Footer
         id={this.state.id}
