@@ -34,8 +34,6 @@ class MainDisplay extends React.Component {
   .catch(error => this.setState({errorMessage: 'Oops! Something went wrong! Please try again later.'}))
   }
 
-
-
   displayIndividual = (id) => {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + id)
     .then(response => response.json())
