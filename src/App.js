@@ -22,9 +22,7 @@ class App extends React.Component {
       errorMessage: ""
     }))
   .catch(error => {
-        console.log(error.message)
         this.setState({errorMessage: error})
-        console.log(this.state.errorMessage)
       })
   }
 
@@ -32,9 +30,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <Switch>
-        <Route path="/" exact render={() => this.state.errorMessage ? <Error /> : <MainDisplay movies={this.state.movies}/>}/>
-          <Route path="/movie/:id"
-          render={(props) => <IndividualView {...props} />}/>
+        <Route path="/" exact render={() => this.state.errorMessage ? <Error /> : <MainDisplay movies={this.state.movies}/> } />
+          <Route exact path="/movie/:id"
+          render={( { match }) =>
+            {
+            const movieID = parseInt(match.params.id)
+            const allMovieIDs = this.state.movies.map(movie => movie.id)
+            return allMovieIDs.includes(movieID) ? <IndividualView id={ movieID } /> : <Error /> }} />
         </Switch>
       </div>
     );

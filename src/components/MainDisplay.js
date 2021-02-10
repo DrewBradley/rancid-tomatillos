@@ -2,7 +2,6 @@ import React from 'react';
 import Movie from './Movie';
 
 const MainDisplay = (props) => {
-   console.log(props)
     const movies = props.movies.map(movie => <Movie
       key={movie.id}
       id={movie.id}
