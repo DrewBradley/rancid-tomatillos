@@ -1,37 +1,39 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
-const Footer = (props) => {
-  console.log(props)
-  const genreList = props.props.genres.map(genre => <p>{genre}</p>)
+const Footer = ({ poster, title, rating, overview, runtime, revenue, budget, genres, tagline, date }) => {
   return(
     <footer>
-        <img className="mini-poster" src={props.props.poster} />
-        <div className="movie-details">
-          <div className="movie-title-container">
-            <h2>{props.props.title}</h2>
-            <h2>{props.props.rating}/10</h2>
+      <img className="mini-poster" src={poster} />
+      <div className="movie-details">
+        <div className="movie-title-container">
+          <h2>{title}</h2>
+          <h2>{rating}/10</h2>
+        </div>
+        <p className="tagline">{tagline}</p>
+        <div className="details-wrapper">
+          <div className="details-sub-wrapper">
+            <p>Release Date: {date}</p>
+            <p>Runtime: {runtime} min.</p>
           </div>
-          <p className="tagline">"{props.props.tagline}"</p>
-          <div className="details-wrapper">
-            <div className="details-sub-wrapper">
-              <p>Release Date: {props.props.date}</p>
-              <p>Runtime: {props.props.runtime} min.</p>
-            </div>
-            <div className="details-sub-wrapper">
-              <p>Budget: ${props.props.budget}</p>
-              <p>Revenue: ${props.props.revenue}</p>
-            </div>
+          <div className="details-sub-wrapper">
+            <p>Budget: ${budget}</p>
+            <p>Revenue: ${revenue}</p>
           </div>
         </div>
         <div className="movie-overview">
           <div className="overview-wrapper">
-            <p className="overview-text">{props.props.overview}</p>
+            <p className="overview-text">{overview}</p>
           </div>
-            <div className="genre-container">{genreList}</div>
-            <button onClick={props.hideView}>BACK</button>
+          <div className="genre-container"> 
+            {genres} 
+          </div>
         </div>
-    </footer>
-  )
-}
+        <Link to={"/"}>
+          <button>GO BACK!!!</button>
+        </Link>
+      </footer>
+    )
+  }
 
 export default Footer
