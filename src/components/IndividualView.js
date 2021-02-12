@@ -49,7 +49,7 @@ class IndividualView extends React.Component {
         budget={this.state.budget}
         genres={this.state.genres}
         tagline={this.state.tagline}
-        date={this.state.release_date}
+        date={this.state.date}
 />
       </section>
     )

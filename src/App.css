@@ -83,23 +83,28 @@ button {
   background-color: black;
   color: red;
   height: 2rem;
-  width: 5rem;
   margin-bottom: 3rem;
+  align-self: left;
 }
 
 .movie-details {
-  padding: 1rem;
+  padding: 1%;
   width: 40rem;
 }
 
 .tagline {
-  font-size: 2rem;
-  margin-bottom: 5%;
+  font-size: 1rem;
+  /* margin-bottom: 5%; */
 }
 
 .details-wrapper {
+  margin-top: 0;
   display: flex;
   justify-content: space-between;
+}
+
+p{
+  margin-top: 0;
 }
 
 .details-sub-wrapper {
@@ -124,9 +129,9 @@ button {
 
 .overview-text {
   z-index: 0;
-  font-size: 1.5rem;
-  padding: 2%;
-  height: 7rem;
+  font-size: 1.25rem;
+  /* padding: 2%; */
+  height: 4.5rem;
   overflow-y: scroll;
 }
 

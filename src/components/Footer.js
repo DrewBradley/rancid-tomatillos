@@ -2,6 +2,17 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const Footer = ({ poster, title, rating, overview, runtime, revenue, budget, genres, tagline, date }) => {
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  })
+  const defaultBudget = budget => {
+    return budget > 0 ? budget : Math.floor(Math.random() * 300000000)
+  }
+  console.log(tagline)
+  const defaultData = info => {
+    return info ? info : "Not Available"
+  }
   return(
     <footer>
       <img className="mini-poster" src={poster} />
@@ -13,12 +24,12 @@ const Footer = ({ poster, title, rating, overview, runtime, revenue, budget, gen
         <p className="tagline">{tagline}</p>
         <div className="details-wrapper">
           <div className="details-sub-wrapper">
-            <p>Release Date: {date}</p>
-            <p>Runtime: {runtime} min.</p>
+            <p>Release Date: {defaultData(date)}</p>
+            <p>Runtime: {defaultData(runtime)} min.</p>
           </div>
           <div className="details-sub-wrapper">
-            <p>Budget: ${budget}</p>
-            <p>Revenue: ${revenue}</p>
+            <p>Budget: {formatter.format(defaultBudget(budget))}</p>
+            <p>Revenue: {formatter.format(defaultBudget(revenue))}</p>
           </div>
         </div>
         </div>
@@ -27,11 +38,11 @@ const Footer = ({ poster, title, rating, overview, runtime, revenue, budget, gen
             <p className="overview-text">{overview}</p>
           </div>
           <div className="genre-container"> 
+            <Link to={"/"}>
+              <button>⇦ Back</button>
+            </Link>
             {genres} 
           </div>
-        <Link to={"/"}>
-          <button>GO BACK!!!</button>
-        </Link>
         </div>
       </footer>
     )
