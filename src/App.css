@@ -1,18 +1,22 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #000;
-  width: 100%;
+  width: 100%;  
   height: 100vh;
-  display: flex;
+}
+
+.App {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .main-display {
   z-index: 0;
   display: grid;
   grid-gap: 1rem;
-  width: 85%;
-  margin: auto;
-  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .title-container {
@@ -138,4 +142,24 @@ p{
 .error {
   font-size: 3.5rem;
   color: red;
+}
+
+
+@media screen and (max-width: 1400px) {
+  .main-display {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media screen and (max-width: 1050px) {
+  .main-display {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .main-display {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
