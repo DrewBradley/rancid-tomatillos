@@ -51,11 +51,19 @@ describe('App Elements', () => {
       'response.ok'
     })
   })
-  it('Should display error if path does not exist', () => {
+  it('Should send error if path does not exist', () => {
     cy.intercept('GET', '/movies/528085', {fixture: 'fail-movie.json'}).as('failRoute')
     cy.visit('http://localhost:3000/movie/528085')
     cy.wait('@failRoute').then((interception) => {
       expect(interception.response.body).to.include({"error":"No movie found with id:69420"})
     })
+  })
+  it('Should display error if route does not exist', () => {
+    cy.visit('http://localhost:3000/')
+    // cy.get('h1').contains('Oops! Something went wrong!')
+    cy.get('div').find('img').should('have.attr', 'src', 'https://media.giphy.com/media/wSSooF0fJM97W/giphy.gif')
+    cy.visit('http://localhost:3000/movie/696969')
+    cy.get('h1').contains('Oops! Something went wrong!')
+    cy.get('div').find('img').should('have.attr', 'src', 'https://media.giphy.com/media/wSSooF0fJM97W/giphy.gif')
   })
 });
