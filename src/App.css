@@ -104,6 +104,10 @@ footer {
   font-size: 2rem;
 }
 
+.hidden-title {
+  visibility: hidden;
+}
+
 h2 {
   margin: 0;
 }
@@ -146,6 +150,9 @@ p{
   width: 50%
 }
 .movie-overview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 70%;
 }
 
@@ -172,6 +179,18 @@ p{
 .error {
   font-size: 3.5rem;
   color: red;
+}
+
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error-image {
+  height: 50%;
 }
 
 
