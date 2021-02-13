@@ -15,7 +15,7 @@ const Footer = ({ poster, title, rating, overview, runtime, revenue, budget, gen
   }
   return(
     <footer>
-      <img className="mini-poster" src={poster} />
+      <img alt={title} className="mini-poster" src={poster} />
       <div className="movie-details">
         <div className="movie-title-container">
           <h2 className="movie-preview-title">{title}</h2>
