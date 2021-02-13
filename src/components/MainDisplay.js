@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from './Movie';
+import Header from './Header';
 
 const MainDisplay = (props) => {
     const movies = props.movies.map(movie => <Movie
@@ -12,9 +13,12 @@ const MainDisplay = (props) => {
       />)
 
     return (
-      <section className="main-display">
-        {movies}
-      </section>
+      <div>
+        <Header />
+        <section className="main-display">
+          {movies}
+        </section>
+      </div>
     )
   }
 
