@@ -79,6 +79,24 @@ describe('App Elements', () => {
     cy.get('p[class="revenue"]').contains('Revenue: $17,133,446.00')
   })
 
+  it('Should display movie overview when individual view is showing', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('a[id="508439"]').click()
+    cy.get('p[class="overview-text"]').contains('In a suburban fantasy world, two teenage elf brothers embark on an extraordinary quest to discover if there is still a little magic left out there.')
+  })
+
+  it('Should display tagline when individual view is showing', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('a[id="627290"]').click()
+    cy.get('p[class="tagline"]').contains('If it chooses you, nothing can save you')
+  })
+
+  it.only('Should display movie genres when individual view is showing', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('a[id="592350"]').click()
+    cy.get('div[class="genre-container"]').contains('Animation')
+  })
+
 
   it('Should send error if path does not exist', () => {
     cy.intercept('GET', '/movies/528085', {fixture: 'fail-movie.json'}).as('failRoute')
