@@ -1,33 +1,36 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #000;
-  width: 100%;
+  width: 100%;  
   height: 100vh;
-  display: flex;
+}
+
+.App {
+    width: 100%;
 }
 
 .main-display {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
   z-index: 0;
   display: grid;
   grid-gap: 1rem;
-  width: 85%;
-  margin: auto;
-  grid-template-columns: repeat(5, 1fr);
+
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .title-container {
   height: 30rem;
   width: 20rem;
+  visibility: hidden;
 }
 
 .background-img {
+  margin: auto;
   cursor: pointer;
-  height: 100%;
-  width: 100%;
-}
-
-.title-container {
-  visibility: hidden;
+  height: 500px;
+  max-width: 322px;
 }
 
 .title-container:hover {
@@ -83,23 +86,27 @@ button {
   background-color: black;
   color: red;
   height: 2rem;
-  width: 5rem;
   margin-bottom: 3rem;
+  align-self: left;
 }
 
 .movie-details {
-  padding: 1rem;
+  padding: 1%;
   width: 40rem;
 }
 
 .tagline {
-  font-size: 2rem;
-  margin-bottom: 5%;
+  font-size: 1rem;
 }
 
 .details-wrapper {
+  margin-top: 0;
   display: flex;
   justify-content: space-between;
+}
+
+p{
+  margin-top: 0;
 }
 
 .details-sub-wrapper {
@@ -124,13 +131,33 @@ button {
 
 .overview-text {
   z-index: 0;
-  font-size: 1.5rem;
-  padding: 2%;
-  height: 7rem;
+  font-size: 1.25rem;
+  height: 4.5rem;
   overflow-y: scroll;
 }
 
 .error {
   font-size: 3.5rem;
   color: red;
+}
+
+
+@media screen and (max-width: 1400px) {
+  .main-display {
+    grid-template-columns: repeat(3, 1fr);
+  }  
+  
+}
+
+@media screen and (max-width: 1050px) {
+  .main-display {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .main-display {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

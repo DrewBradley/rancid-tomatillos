@@ -1,5 +1,6 @@
 import React from "react"
 import Footer from "./Footer"
+import Error from "./Error"
 import "../App.css"
 import {NavLink} from "react-router-dom"
 
@@ -7,13 +8,14 @@ class IndividualView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: ''
+      data: '',
+      errorMessage: null
     }
   }
 
   componentDidMount = () => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
-      .then(response => response.json())
+      .then(response => response.status === 200 ? response.json() : this.setState({errorMessage: response.status}))
       .then(data => this.setState({
         id: data.movie.id,
         poster: data.movie.poster_path,
@@ -33,7 +35,8 @@ class IndividualView extends React.Component {
   }
 
   render(){
-    return (
+    return this.state.errorMessage ? <Error /> :
+     (
       <section className="individual"
       style={{
         backgroundImage: `url("${this.state.backdrop}")`, backgroundRepeat: 'no-repeat',
@@ -49,7 +52,7 @@ class IndividualView extends React.Component {
         budget={this.state.budget}
         genres={this.state.genres}
         tagline={this.state.tagline}
-        date={this.state.release_date}
+        date={this.state.date}
 />
       </section>
     )
