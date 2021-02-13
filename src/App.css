@@ -71,6 +71,10 @@ footer {
   font-size: 2rem;
 }
 
+.hidden-title {
+  visibility: hidden;
+}
+
 h2 {
   margin: 0;
 }
