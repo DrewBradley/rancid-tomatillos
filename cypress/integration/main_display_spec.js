@@ -2,13 +2,12 @@ describe('App Elements', () => {
   it('Should be able to visit the page and render the correct elements', () => {
     cy.visit('http://localhost:3000')
       cy.get('div').should("have.id", "root")
-      cy.get('section').contains('a')
+      cy.get('section').find('a')
       cy.get('div').should("have.class", "background-img")
       
     });
   it('Should render 40 movie thumbnails', () => {
       cy.get('section').find('a').should("have.length", 40)
-      cy.get('section').contains('a').click({multiple: true})
     });
   it('Should be able to navigate to individual movie and render elements', () => {
     cy.visit('http://localhost:3000/movie/581392')
@@ -44,6 +43,8 @@ describe('App Elements', () => {
       'response.ok'
     })
   })
+
+
   it('Should fetch full dataset for a specific movie when it is selected', () => {
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/581392', {fixture: 'one-movie.json'}).as('movieRoute')
     cy.visit('http://localhost:3000/movie/581392')
@@ -51,6 +52,34 @@ describe('App Elements', () => {
       'response.ok'
     })
   })
+
+  it('Should display movie title when individual view is showing', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('a[id="632618"]').click()
+    cy.get('h2[class="movie-preview-title"]').contains('The Crimes That Bind')
+  })
+
+  it('Should display movie rating when individual view is showing', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('a[id="479259"]').click()
+    cy.get('h2[class="movie-rating"]').contains('4.6/10')
+  })
+
+  it('Should display movie release date and runtime when individual view is showing', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('a[id="499932"]').click()
+    cy.get('p[class="release-date"]').contains('2020-09-11')
+    cy.get('p[class="runtime"]').contains('138 min')
+  })
+
+  it('Should display movie budget and revenue when individual view is showing', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('a[id="413518"]').click()
+    cy.get('p[class="budget"]').contains('Budget: $12,400,000.00')
+    cy.get('p[class="revenue"]').contains('Revenue: $17,133,446.00')
+  })
+
+
   it('Should send error if path does not exist', () => {
     cy.intercept('GET', '/movies/528085', {fixture: 'fail-movie.json'}).as('failRoute')
     cy.visit('http://localhost:3000/movie/528085')
@@ -58,7 +87,7 @@ describe('App Elements', () => {
       expect(interception.response.body).to.include({"error":"No movie found with id:69420"})
     })
   })
-  it.only('Should display error if route does not exist', () => {
+  it('Should display error if route does not exist', () => {
     cy.visit('http://localhost:3000/movie/omglol')
     cy.get('h1').contains('Oops! Something went wrong!')
     cy.get('div').find('img').should('have.attr', 'src', 'https://media.giphy.com/media/wSSooF0fJM97W/giphy.gif')
