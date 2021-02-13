@@ -10,7 +10,6 @@ const Movie = (props) => {
         backgroundSize: "cover"}}
       >
         <div className="title-container">
-          <h1 className="title">{props.title}</h1>
         </div>
       </div>
     </Link>

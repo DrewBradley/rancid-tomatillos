@@ -6,32 +6,31 @@ body {
 }
 
 .App {
-  width: 90%;
-  max-width: 1400px;
-  margin: auto;
+    width: 100%;
 }
 
 .main-display {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
   z-index: 0;
   display: grid;
   grid-gap: 1rem;
-  width: 100%;
+
   grid-template-columns: repeat(4, 1fr);
 }
 
 .title-container {
   height: 30rem;
   width: 20rem;
+  visibility: hidden;
 }
 
 .background-img {
+  margin: auto;
   cursor: pointer;
-  height: 100%;
-  width: 100%;
-}
-
-.title-container {
-  visibility: hidden;
+  height: 500px;
+  max-width: 322px;
 }
 
 .title-container:hover {
@@ -98,7 +97,6 @@ button {
 
 .tagline {
   font-size: 1rem;
-  /* margin-bottom: 5%; */
 }
 
 .details-wrapper {
@@ -134,7 +132,6 @@ p{
 .overview-text {
   z-index: 0;
   font-size: 1.25rem;
-  /* padding: 2%; */
   height: 4.5rem;
   overflow-y: scroll;
 }
@@ -148,14 +145,15 @@ p{
 @media screen and (max-width: 1400px) {
   .main-display {
     grid-template-columns: repeat(3, 1fr);
-  }
-
+  }  
+  
 }
 
 @media screen and (max-width: 1050px) {
   .main-display {
     grid-template-columns: repeat(2, 1fr);
   }
+
 }
 
 @media screen and (max-width: 700px) {
