@@ -11,7 +11,7 @@ const Header = () => {
       </div>
       <div className="input-wrapper">
         <label for="search"></label>
-        <input placeholder="Search Movies By Title" type="text" name="search" className="search-bar"></input>
+        <input placeholder="Search By Title" type="text" name="search" className="search-bar"></input>
       </div>
     </header>
   )

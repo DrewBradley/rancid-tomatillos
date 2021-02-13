@@ -180,11 +180,19 @@ p{
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .app-name {
+    font-size: 3.5rem;
+  }
+
 }
 
 @media screen and (max-width: 1050px) {
   .main-display {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .app-name {
+    font-size: 2rem;
   }
 
 }
@@ -193,4 +201,13 @@ p{
   .main-display {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .app-name {
+    display: none;
+  }
+
+  input {
+    width: 12rem;
+  }
+
 }
