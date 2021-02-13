@@ -37,11 +37,11 @@ const Footer = ({ poster, title, rating, overview, runtime, revenue, budget, gen
           <div className="overview-wrapper">
             <p className="overview-text">{overview}</p>
           </div>
-          <div className="genre-container"> 
+          <div className="genre-container">
             <Link to={"/"}>
               <button>⇦ Back</button>
             </Link>
-            {genres} 
+            {genres}
           </div>
         </div>
       </footer>
