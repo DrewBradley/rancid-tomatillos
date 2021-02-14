@@ -14,6 +14,19 @@ class App extends React.Component {
     };
   }
 
+  searchMovies = (event) => {
+    const { value } = event.target
+    const lowercaseMovies = this.state.movies.map(movie => {
+      return movie.title.toLowerCase()
+    })
+    const foundMovie = lowercaseMovies.filter(title => {
+      if(title.includes(value.toLowerCase())) {
+        return title
+      }
+    })
+    console.log(foundMovie)
+  }
+
   componentDidMount = () => {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(response => response.json())
@@ -30,7 +43,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Switch>
-        <Route path="/" exact render={() => this.state.errorMessage ? <Error /> : <MainDisplay movies={this.state.movies}/> } />
+        <Route path="/" exact render={() => this.state.errorMessage ? <Error /> : <MainDisplay movies={this.state.movies} searchMovies={this.searchMovies}/> } />
           <Route exact path="/movie/:id"
           render={( { match }) =>
             {

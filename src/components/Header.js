@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import grouch from '../grouch-potato.png'
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header>
       <div className='logo-and-name-wrapper'>
@@ -11,7 +10,14 @@ const Header = () => {
       </div>
       <div className="input-wrapper">
         <label for="search"></label>
-        <input placeholder="Search By Title" type="text" name="search" className="search-bar"></input>
+        <input 
+          placeholder="Search By Title" 
+          type="text" 
+          name="search" 
+          className="search-bar"
+          // value={}
+          onChange={props.searchMovies}
+        ></input>
       </div>
     </header>
   )
