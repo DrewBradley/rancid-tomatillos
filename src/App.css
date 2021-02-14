@@ -16,8 +16,41 @@ body {
   z-index: 0;
   display: grid;
   grid-gap: 1rem;
-
   grid-template-columns: repeat(4, 1fr);
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.logo-and-name-wrapper {
+  border-radius: 5px;
+  border: solid 5px red;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin: 1rem;
+  height: 100px;
+}
+
+.app-name {
+  padding-right: 1.5rem;
+  margin: 0px;
+  font-size: 5rem;
+  color: red;
+}
+
+input {
+  border-radius: 10px;
+  margin-top: 2rem;
+  font-size: 1.7rem;
+  height: 2rem;
+  width: 25rem;
 }
 
 .title-container {
@@ -165,6 +198,11 @@ p{
   .main-display {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .app-name {
+    font-size: 3.5rem;
+  }
+
 }
 
 @media screen and (max-width: 1050px) {
@@ -172,17 +210,9 @@ p{
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .details-wrapper {
-    flex-direction: column;
+  .app-name {
+    font-size: 2rem;
   }
-
-  .genre-container {
-    flex-direction: column-reverse;
-  }
-
-.movie-title-container {
-  font-size: 1.5rem;
-}
 
 }
 
@@ -191,47 +221,12 @@ p{
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .individual {
-    background-image: none !important;
+  .app-name {
+    display: none;
   }
 
-  .movie-title-container {
-    display: flex;
-    flex-direction: column;
+  input {
+    width: 12rem;
   }
-
-  .movie-details,
-  .movie-overview {
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto 0 auto;
-  }
-
-  footer {
-     padding-top: 0%;
-     overflow-y: scroll;
-     flex-direction: column;
-     align-items: center;
-     width: 100%;
-     height: 100%;
-     bottom: 0;
-   }
-
-   .mini-poster {
-     margin: 2% auto 0 auto;
-     height: 30rem;
-     width: 20rem;
-   }
-
-
-   .overview-text {
-     font-size: 1rem;
-   }
-
-   .genre-container {
-     flex-direction: row;
-     justify-content: space-evenly;
-     flex-wrap: wrap-reverse;
-   }
 
 }
