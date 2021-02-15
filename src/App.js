@@ -24,7 +24,7 @@ class App extends React.Component {
         return title
       }
     })
-    console.log(foundMovie)
+    return foundMovie
   }
 
   componentDidMount = () => {

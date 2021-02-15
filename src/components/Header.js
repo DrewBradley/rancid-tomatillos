@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import grouch from '../grouch-potato.png'
 
 const Header = (props) => {
@@ -18,9 +19,11 @@ const Header = (props) => {
           list="movie-title-list"
           onChange={props.searchMovies}
         ></input>
+        
         <datalist id="movie-title-list">
-          {props.movies.map(movie=> <option value={movie.title}/>)}
+          {props.movies.map(movie=> <Link to={`/movie/${movie.id}`} value={movie.title}><option value={movie.title}/></Link>  )}
         </datalist>
+        
       </div>
     </header>
   )
