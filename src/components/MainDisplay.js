@@ -14,7 +14,7 @@ const MainDisplay = (props) => {
 
     return (
       <div>
-        <Header searchMovies={props.searchMovies}/>
+        <Header searchMovies={props.searchMovies} movies={props.movies}/>
         <section className="main-display">
           {movies}
         </section>

@@ -15,9 +15,12 @@ const Header = (props) => {
           type="text" 
           name="search" 
           className="search-bar"
-          // value={}
+          list="movie-title-list"
           onChange={props.searchMovies}
         ></input>
+        <datalist id="movie-title-list">
+          {props.movies.map(movie=> <option value={movie.title}/>)}
+        </datalist>
       </div>
     </header>
   )
