@@ -27,7 +27,7 @@ class IndividualView extends React.Component {
         revenue: data.movie.revenue,
         budget: data.movie.budget,
         genres: data.movie.genres.map(genre =>
-          <p>{genre}</p>),
+          <p className="genres">{genre}</p>),
         tagline: data.movie.tagline,
         date: data.movie.release_date
       }))
