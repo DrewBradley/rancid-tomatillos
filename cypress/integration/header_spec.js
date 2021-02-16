@@ -21,6 +21,5 @@ describe('Header Component', () => {
     cy.get('a').should('have.attr', 'id', '337401')
     cy.get('input').clear().type('m')
     cy.get('section').find('a').should("have.length", 17)
-
   });
 });
