@@ -10,8 +10,21 @@ class App extends React.Component {
     super()
     this.state = {
       movies: [],
+      filteredMovies: [],
       errorMessage: "",
     };
+  }
+
+  searchMovies = (event) => {
+    const { value } = event.target
+    const foundMovies = this.state.movies.filter(movie => {
+      if (movie.title.toLowerCase().includes(value.toLowerCase())) {
+        return movie
+      }
+    })
+    this.setState({
+      filteredMovies: foundMovies
+    })
   }
 
   componentDidMount = () => {
@@ -30,7 +43,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Switch>
-        <Route path="/" exact render={() => this.state.errorMessage ? <Error /> : <MainDisplay movies={this.state.movies}/> } />
+        <Route path="/" exact render={() => this.state.errorMessage ? <Error /> : <MainDisplay movies={!this.state.filteredMovies.length ? this.state.movies : this.state.filteredMovies} searchMovies={this.searchMovies}/> } />
           <Route exact path="/movie/:id"
           render={( { match }) =>
             {
