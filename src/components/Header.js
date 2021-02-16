@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import ReactDOM from 'react-dom';
 import grouch from '../grouch-potato.png'
 
 const Header = (props) => {
@@ -11,19 +11,7 @@ const Header = (props) => {
       </div>
       <div className="input-wrapper">
         <label for="search"></label>
-        <input 
-          placeholder="Search By Title" 
-          type="text" 
-          name="search" 
-          className="search-bar"
-          list="movie-title-list"
-          onChange={props.searchMovies}
-        ></input>
-        
-        <datalist id="movie-title-list">
-          {props.movies.map(movie=> <Link to={`/movie/${movie.id}`} value={movie.title}><option value={movie.title}/></Link>  )}
-        </datalist>
-        
+        <input placeholder="Search By Title" type="text" name="search" className="search-bar" onChange={props.searchMovies}></input>
       </div>
     </header>
   )
