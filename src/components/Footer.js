@@ -9,17 +9,23 @@ const Footer = ({ poster, title, rating, overview, runtime, revenue, budget, gen
   const defaultBudget = budget => {
     return budget > 0 ? budget : Math.floor(Math.random() * 300000000)
   }
-  console.log(tagline)
   const defaultData = info => {
     return info ? info : "Not Available"
   }
+
+  const titleLength = title && title.length
+  const titleFont = titleLength >= 10 && '2rem'
+
   return(
     <footer>
       <img alt={title} className="mini-poster" src={poster} />
       <div className="movie-details">
         <div className="movie-title-container">
-          <h2 className="movie-preview-title">{title}</h2>
-          <h2 className="movie-rating">{rating}/10</h2>
+          <h2 className="movie-preview-title" style={{fontSize: titleFont}}>{title}</h2>
+          <div className="rating-container">
+            <h2>Rating</h2>
+            <h2 className="movie-rating" style={{['--rating']: rating}}></h2>
+          </div>
         </div>
         <p className="tagline">{tagline}</p>
         <div className="details-wrapper">
@@ -38,11 +44,11 @@ const Footer = ({ poster, title, rating, overview, runtime, revenue, budget, gen
             <p className="overview-text">{overview}</p>
           </div>
           <div className="genre-container">
-            <Link to={"/"}>
-              <button>⇦ Back</button>
-            </Link>
             {genres}
           </div>
+          <Link to={"/"}>
+            <button>⇦ Back</button>
+          </Link>
         </div>
       </footer>
     )
