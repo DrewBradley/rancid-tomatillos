@@ -4,11 +4,13 @@ describe('App Elements', () => {
       cy.get('div').should("have.id", "root")
       cy.get('section').find('a')
       cy.get('div').should("have.class", "background-img")
-      
+
     });
+
   it('Should render 40 movie thumbnails', () => {
       cy.get('section').find('a').should("have.length", 40)
     });
+
   it('Should be able to navigate to individual movie and render elements', () => {
     cy.visit('http://localhost:3000/movie/581392')
       cy.get('footer', { timeout: 10000 }).should('be.visible')
@@ -22,6 +24,7 @@ describe('App Elements', () => {
       cy.get('footer', { timeout: 10000 }).should('be.visible')
       cy.get('footer').find('img').should('have.attr', 'src', "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg")
   });
+
   it('Should be able to navigate to any individual movie and render elements', () => {
     cy.visit('http://localhost:3000/')
       cy.get('a[id="613504"]').click()
@@ -31,11 +34,13 @@ describe('App Elements', () => {
       cy.get('footer', { timeout: 10000 }).should('be.visible')
       cy.get('footer').find('img').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//4V2nTPfeB59TcqJcUfQ9ziTi7VN.jpg')
   });
+
   it('Should display a still from movie in individual view', () => {
     cy.visit('http://localhost:3000/')
       cy.get('a[id="340102"]').click()
       cy.get('section').should('have.attr', 'style', 'background-image: url("https://image.tmdb.org/t/p/original//eCIvqa3QVCx6H09bdeOS8Al2Sqy.jpg"); background-repeat: no-repeat; background-size: cover;')
   });
+
   it('Should fetch shallow dataset for all movies upon page load', () => {
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture: 'movies.json'}).as('movieRoute')
     cy.visit('http://localhost:3000/')
@@ -43,7 +48,6 @@ describe('App Elements', () => {
       'response.ok'
     })
   })
-
 
   it('Should fetch full dataset for a specific movie when it is selected', () => {
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/581392', {fixture: 'one-movie.json'}).as('movieRoute')
@@ -91,12 +95,11 @@ describe('App Elements', () => {
     cy.get('p[class="tagline"]').contains('If it chooses you, nothing can save you')
   })
 
-  it.only('Should display movie genres when individual view is showing', () => {
+  it('Should display movie genres when individual view is showing', () => {
     cy.visit('http://localhost:3000/')
     cy.get('a[id="592350"]').click()
     cy.get('div[class="genre-container"]').contains('Animation')
   })
-
 
   it('Should send error if path does not exist', () => {
     cy.intercept('GET', '/movies/528085', {fixture: 'fail-movie.json'}).as('failRoute')
@@ -105,6 +108,7 @@ describe('App Elements', () => {
       expect(interception.response.body).to.include({"error":"No movie found with id:69420"})
     })
   })
+
   it('Should display error if route does not exist', () => {
     cy.visit('http://localhost:3000/movie/omglol')
     cy.get('h1').contains('Oops! Something went wrong!')
