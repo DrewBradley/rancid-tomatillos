@@ -63,10 +63,11 @@ describe('App Elements', () => {
     cy.get('h2[class="movie-preview-title"]').contains('The Crimes That Bind')
   })
 
-  it('Should display movie rating when individual view is showing', () => {
+  it.only('Should display movie rating when individual view is showing', () => {
     cy.visit('http://localhost:3000/')
     cy.get('a[id="479259"]').click()
-    cy.get('h2[class="movie-rating"]').contains('4.6/10')
+    cy.get('div[class="rating-container"]').contains('h2', 'Rating')
+    cy.get('h2[class="movie-rating"]').should('have.attr', 'style', '--rating:4.6;')
   })
 
   it('Should display movie release date and runtime when individual view is showing', () => {
