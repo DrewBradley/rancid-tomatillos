@@ -32,7 +32,7 @@ class IndividualView extends React.Component {
       }))
       .catch(error => this.setState({
         errorMessage: error
-      })))
+      }))
   }
 
   render(){
