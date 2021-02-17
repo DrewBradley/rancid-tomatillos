@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css';
 import MainDisplay from './components/MainDisplay';
-import {Route, Switch, Redirect} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import IndividualView from './components/IndividualView';
 import Error from './components/Error';
 
