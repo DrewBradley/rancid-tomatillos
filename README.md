@@ -4,7 +4,7 @@
 Grouch Potato allows users to browse todays top movies! Users can scroll through a thumbnails of all movies, or usee the search function to find a specific movie by title. When users click on a movie thumbnail, they are brought to page that displays movie details about the specific movies.
 
 ## Deployed site
-[ADD THE LINK HERE](www.example.com)
+[Click Here to Visit Grouch Potato](ugliest-servant.surge.sh)
 
 ## Screenshot
 ![Desktop Search](https://media.giphy.com/media/B0zBDxo8fTz7rS7hWJ/giphy.gif)</br>
