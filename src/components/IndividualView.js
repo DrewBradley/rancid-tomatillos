@@ -2,7 +2,6 @@ import React from "react"
 import Footer from "./Footer"
 import Error from "./Error"
 import "../App.css"
-import {NavLink} from "react-router-dom"
 
 class IndividualView extends React.Component {
   constructor(props) {
@@ -26,12 +25,14 @@ class IndividualView extends React.Component {
         runtime: data.movie.runtime,
         revenue: data.movie.revenue,
         budget: data.movie.budget,
-        genres: data.movie.genres.map(genre =>
-          <p className="genres">{genre}</p>),
+        genres: data.movie.genres.map((genre, index) =>
+          <p className="genres" key={index}>{genre}</p>),
         tagline: data.movie.tagline,
         date: data.movie.release_date
       }))
-      .catch(error => console.log(error))
+      .catch(error => this.setState({
+        errorMessage: error
+      })))
   }
 
   render(){

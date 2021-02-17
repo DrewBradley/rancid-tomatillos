@@ -1,12 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import grouch from '../grouch-potato.png'
 
 const Header = (props) => {
   return (
     <header>
       <div className='logo-and-name-wrapper'>
-        <img className='logo' src={grouch}/>
+        <img className='logo' src={grouch} alt="Angry mister potato head smoking a cigar"/>
         <h1 className="app-name">Grouch Potato</h1>
       </div>
       <div className="input-wrapper">
