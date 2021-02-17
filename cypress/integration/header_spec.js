@@ -10,7 +10,7 @@ describe('Header Component', () => {
       cy.get('input[class="search-bar"]').should('have.attr', 'type', 'text')
   });
 
-  it.only('User input should filter movies by title in main display', () => {
+  it('User input should filter movies by title in main display', () => {
     cy.visit('http://localhost:3000')
     cy.wait(1000)
     cy.get('input').type('Trolls')
