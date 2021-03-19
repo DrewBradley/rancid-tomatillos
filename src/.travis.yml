@@ -20,5 +20,5 @@ install:
 script:
   - npm start &
   - npm run start:ci &
-  - npm run cy:run -- --record --key a6f754d5-999f-4710-ba66-17f075071e70
+  - npm run cy:run -- --record --key 9009a397-d485-4ebe-89ad-61d5011e21cd
   - kill $(jobs -p) || true
