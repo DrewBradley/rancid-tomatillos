@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress": "./node_modules/.bin/cypress open",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --browser electron",
     "cy:run:record": "cypress run --record"
   },
   "eslintConfig": {
@@ -43,6 +43,6 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^6.8.0"
+    "cypress": "^6.4.0"
   }
 }
